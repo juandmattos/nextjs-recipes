@@ -1,14 +1,14 @@
 // This page is our entire app
-import Link from 'next/link'
-import '../styles/globals.css'
+import Link from "next/link"
+import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <nav className='header'>
+      <nav className="header">
         <div>
-          <Link href='/'>
-            <a>JD's Kitchen 🍍</a>
+          <Link href="/">
+            <a>JDs Kitchen 🍍</a>
           </Link>
         </div>
       </nav>

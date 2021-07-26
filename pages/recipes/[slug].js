@@ -9,6 +9,7 @@ import {
   usePreviewSubscription,
   PortableText,
 } from '../../lib/sanity'
+import Image from 'next/image'
 
 const recipeQuery = `*[_type == 'recipe' && slug.current == $slug][0]{
       _id,
@@ -30,16 +31,16 @@ const recipeQuery = `*[_type == 'recipe' && slug.current == $slug][0]{
 
 export default function OneRecipe({ data, preview }) {
   const router = useRouter()
-
-  if(router.isFallback || !data) {
-    return <div>Loading ...</div>
-  }
   const { data: recipe } = usePreviewSubscription(recipeQuery, {
     params: { slug: data.recipe?.slug.current },
     initialData: data,
     enabled: preview
   })
   const [likes, setLikes] = useState(data?.recipe?.likes)
+
+  if(router.isFallback || !data) {
+    return <div>Loading ...</div>
+  }
 
   const addLike = async () => {
     const res = await fetch("/api/handle-like", {

@@ -8,6 +8,8 @@ sudo npm install -g @sanity/cli && sanity init
 
 sanity start
 
+sanity deploy
+
 
 schema.js ---> all schemas:
 CHEF
