@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Link from "next/link"
+import Image from "next/image"
 import { sanityClient, urlFor } from "../lib/sanity"
 
 // groq query
@@ -40,7 +41,10 @@ export default function Home({ recipes }) {
             <li key={recipe._id} className="recipe-card">
               <Link href={`/recipes/${recipe.slug.current}`}>
                 <a>
-                  <img src={urlFor(recipe.mainImage).url()} alt={recipe.name} />
+                  <img 
+                    src={urlFor(recipe.mainImage).url()} 
+                    alt={recipe.name}
+                  />
                   <span>{recipe.name}</span>
                 </a>
               </Link>
